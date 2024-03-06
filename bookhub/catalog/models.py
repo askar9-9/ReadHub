@@ -38,7 +38,7 @@ class Book(models.Model):
         return self.title
     
     def get_description(self):
-        return self.description
+        return self.descripwtion
     
     class Meta:
         verbose_name = "Книгу"

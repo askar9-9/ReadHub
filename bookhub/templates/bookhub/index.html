@@ -6,7 +6,7 @@
     <section class="d-flex gap-4 flex-wrap justify-content-center justify-content-sm-start">
     {% for object in objects %}
       <a class="card rounded-2" style="max-width: 15rem;" href='{% url "book_details" object.slug %}'>
-        <img src="media/{{ object.img }}" class="card-img-top" alt="Книга: {{ object.title }}" style="max-height: 20rem;">
+        <img src="{{ object.img.url }}" class="card-img-top" alt="Книга: {{ object.title }}" style="max-height: 20rem;">
         <div class="card-body">
           <p class="card-text">{{ object.title }}</p>
         </div>

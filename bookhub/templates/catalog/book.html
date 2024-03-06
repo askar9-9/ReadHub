@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}ReadHub{% endblock %}
+{% block content %}
+    <main class="px-lg-5 px-3 pt-3">
+        <div class="d-flex gap-2 gap-md-5 flex-wrap flex-md-nowrap justify-content-lg-start justify-content-center">
+            <img src='{{ book.img }}' class="border border-2 rounded-2 flex-shrink-1" alt="Книга: {{ book.title }}">
+            <div class="">
+                <h2 class="mb-3 fs-2 fw-medium mb-3 text-center text-md-start">{{ book.title }}</h2>
+                <p class="text-primary text-center text-md-start"><span class="fw-bold text-body-secondary">Автор:</span> {{ author.first_name }} {{ author.last_name}} </p>
+                <p class="text-primary text-center text-md-start"><span class="fw-bold text-body-secondary">Количество страниц:</span> {{ book.page_count }}</p>
+            </div>
+        </div>
+        <div class="accordion mt-3" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Описание
+                </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">{{ book.description }}</div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
