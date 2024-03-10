@@ -38,7 +38,19 @@ class Book(models.Model):
         return self.title
     
     def get_description(self):
-        return self.descripwtion
+        return self.description
+
+    def get_img_url(self):
+        return self.img.url
+    
+    def get_page_count(self):
+        return self.page_count
+
+    def get_genre(self):
+        return self.genre.values()[0]['name_genre'] 
+
+    def get_author(self):
+        return self.author
     
     class Meta:
         verbose_name = "Книгу"

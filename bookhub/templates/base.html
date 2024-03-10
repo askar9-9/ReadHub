@@ -25,8 +25,8 @@
                       <li class="nav-link my-sm-0 mt-2 mb-3"><a href='{% url "catalog" %}' class="text-black link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover link-offset-2">Каталог</a></li>
                     </ul>
                     <div class="d-flex flex-column flex-sm-row gap-2 mt-2 mt-sm-0">
-                      <button type="button" class="btn btn-outline-primary opacity-75 fw-semibold">Войти</button>
-                      <button type="button" class="btn btn-outline-primary opacity-75 fw-semibold">Регистрация</button>
+                      <a href="{% url "login" %}" class="btn btn-outline-primary opacity-75 fw-semibold">Войти</a>
+                      <a href="{% url "register" %}" class="btn btn-outline-primary opacity-75 fw-semibold">Регистрация</a>
                     </div>
                   </div>
                 </div>
