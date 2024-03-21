@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect
 
 def index(request):
-    return render(request, 'bookhub/index.html')
+    return redirect('catalog')
