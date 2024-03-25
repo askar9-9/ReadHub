@@ -3,3 +3,13 @@ body, div, h1, h2, h3, h4, h5, h6, p {
     padding: 0;
     border: 0;
 }
+
+@media only screen and (max-width: 768px) {
+  .accordion-body {
+      font-size: 14px;
+  }
+  .card, .card-img-top, .card-body, .card-text {
+      max-width: 200px;
+      font-size: 14px;
+  }
+}
