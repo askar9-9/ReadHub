@@ -38,17 +38,17 @@ python manage.py runserver
 * Отслеживание прогресса чтения: Пользователи могут отслеживать, сколько страниц они прочитали в каждой книге, и отмечать книги как прочитанные, отложенные, планируемые.
 * Авторизация: Пользователи могут регистрироваться, входить в систему и выходить из системы.
 
-**Каталог**
-  ![image](https://github.com/askar9-9/ReadHub/assets/88559517/81a62dd4-1132-4424-b1d4-030b2e521bae)
+### **Каталог**
+ ![image](https://github.com/askar9-9/ReadHub/assets/88559517/c104bd9b-33db-41bd-bbd3-3b29b2e7a60f)
 
-**Страница книги**
-![image](https://github.com/askar9-9/ReadHub/assets/88559517/88a94b5c-6ff4-4312-b637-7e6ddc217409)
+### **Страница книги**
+![image](https://github.com/askar9-9/ReadHub/assets/88559517/9ed1f866-0b2e-4a91-a406-e8753b65e8b4)
 
-**Библиотека**
-![image](https://github.com/askar9-9/ReadHub/assets/88559517/7b8ba1c9-b7c9-41d9-8dd4-b0a7f0e59373)
+### **Библиотека**
+![image](https://github.com/askar9-9/ReadHub/assets/88559517/84627737-7b0c-4cb6-9484-3114072dde70)
 
-**Отслеживание прогресса**
-![image](https://github.com/askar9-9/ReadHub/assets/88559517/88da26e1-a995-48ab-9010-91cb4b2551d8)
+### **Отслеживание прогресса**
+![image](https://github.com/askar9-9/ReadHub/assets/88559517/c835e4bc-e979-4564-8ddb-fd16796fdc88)
 
 
 
