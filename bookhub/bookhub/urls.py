@@ -23,6 +23,9 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('catalog/', include('catalog.urls', namespace='catalog')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('library/', include('library.urls', namespace='library')),
     path('', views.index, name='index'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

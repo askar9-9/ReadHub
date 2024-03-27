@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}ReadHub | Моя библиотека{% endblock %}
+{% block content %}
+  <section class="px-lg-5 px-3 mx-auto">
+      <h1 class="py-3 text-dark-emphasis fw-semibold border-bottom border-2">Моя Библиотека</h1>
+        <div class="row py-2">
+            <div class="col-12 col-lg-2 p-3 rounded-1">
+              <h6 class="mb-2">Выберите статус:</h6>
+              <form method="POST">
+                  {% csrf_token %}
+                  {{ form.status_field }}
+                <button type="submit" class="btn btn-primary btn-sm mt-3">Применить</button>
+              </form>
+
+            </div>
+        <div class="col-12 col-lg-10 px-3">
+        {% if library|length > 0 %}
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Название</th>
+                <th scope="col" class="d-none d-sm-table-cell">Страницы</th>
+                <th scope="col" class="d-none d-sm-table-cell">Статус</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in library %}
+                <tr>
+                  <td><a href="{% url 'library:tracker' item.book.slug %}" class="text-black">{{ item.book.title }}</a></td>
+                  <td class="d-none d-sm-table-cell">{{ item.pages_read }} / {{ item.book.page_count }}</td>
+                  <td class="d-none d-sm-table-cell">{{ item.get_status_display }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+            <p class="text-center fw-bold py-3">Ничего не найдено</p>
+        {% endif %}
+        </div>
+      </div>
+  </section>
+{% endblock %}

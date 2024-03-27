@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Войти | ReadHub{% endblock %}
+{% block content %}
+    <div class="container-fluid pt-5">
+        <div class="d-flex justify-content-center align-items-center">
+            <form method="post" class="d-flex flex-column gap-3 border border-1 p-4 rounded-3">
+                {% csrf_token %}
+                    <h3 class="text-center fw-medium">Вход</h3>
+                    <div>
+                        <label class="form-label fw-bold opacity-75" for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+                        {{ form.username }}
+                    </div>
+                    <div>
+                        <label class="form-label fw-bold opacity-75" for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+                        {{ form.password }}
+                    </div>
+                {% for message in messages %}
+                    <p class="text-danger fs-6 fw-medium">{{ message }}</p>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary opacity-75 fw-semibold">Войти</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
