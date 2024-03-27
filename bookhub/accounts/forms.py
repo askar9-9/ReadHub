@@ -5,12 +5,12 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}),
-                               label='Логин',
-                               error_messages={'required': 'Логин не заполнен!'})
+                                label='Логин',
+                                error_messages={'required': 'Логин не заполнен!'})
 
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}),
-                               label='Пароль',
-                               error_messages={'required': 'Пароль не заполнен!'})
+                                label='Пароль',
+                                error_messages={'required': 'Пароль не заполнен!'})
 
     class Meta:
         # Best practice

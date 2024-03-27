@@ -15,11 +15,11 @@ class Library(models.Model):
         POSTPONED = 'PD', 'Отложено'
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    book = models.OneToOneField(Book, on_delete=models.CASCADE, related_name='library_book')
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='library_book')
     status = models.CharField(max_length=2, choices=Status.choices, default=Status.PLANNING)
     pages_read = models.IntegerField(default=0, verbose_name='Прочитано')
     date_added = models.DateTimeField(default=timezone.now, verbose_name='Дата добавления')
-
+    
     class Meta:
         ordering = ['-date_added']
         indexes = [

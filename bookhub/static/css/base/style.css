@@ -4,12 +4,24 @@ body, div, h1, h2, h3, h4, h5, h6, p {
     border: 0;
 }
 
+section, nav>div {
+    max-width: 1200px;
+}
+
+.card-text {
+    font-size: 16px;
+}
+
+.card {
+    max-width: 240px;
+}
+
 @media only screen and (max-width: 768px) {
-  .accordion-body {
-      font-size: 14px;
-  }
-  .card, .card-img-top, .card-body, .card-text {
-      max-width: 200px;
-      font-size: 14px;
-  }
+    .accordion-body {
+        font-size: 14px;
+    }
+    .card, .card-img-top, .card-body, .card-text {
+        font-size: 14px;
+        max-width: 180px;
+    }
 }

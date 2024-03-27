@@ -14,9 +14,9 @@ class StatusForm(forms.Form):
 
 
 class LibraryForm(forms.ModelForm):
-    status = forms.ChoiceField(choices=Library.Status.choices,
-                               widget=forms.Select(attrs={'class': 'form-select form-select-sm'}),
-                               label="Статус")
+    status = forms.ChoiceField( choices=Library.Status.choices,
+                                widget=forms.Select(attrs={'class': 'form-select form-select-sm'}),
+                                label="Статус")
     pages_read = forms.IntegerField(widget=forms.NumberInput(attrs={'class': 'form-control form-control-sm', 'min' : '0'}), label="Прочитано")
 
     class Meta:

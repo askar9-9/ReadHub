@@ -2,8 +2,8 @@
 {% load static %}
 {% block title %}ReadHub{% endblock %}
 {% block content %}
-    <main class="px-lg-5 px-2 pt-3">
-        <div class="d-flex gap-2 gap-md-5 flex-wrap flex-md-nowrap justify-content-start">
+    <section class="px-lg-5 px-2 pt-3 mx-auto">
+        <div class="d-flex gap-2 gap-md-5 flex-wrap flex-md-nowrap justify-content-sm-start justify-content-center">
             <img src='{{ book.img.url }}' class="border border-2 rounded-2 flex-shrink-1" alt="Книга: {{ book.title }}">
             <div class="">
                 <h2 class="mb-3 fs-2 fw-medium mb-3">{{ book.title }}</h2>
@@ -12,22 +12,13 @@
                 <p class="text-primary"><span class="fw-bold text-body-secondary">Жанр:</span> {{ book.get_genre }}</p>
                 <p class="text-primary"><span class="fw-bold text-body-secondary">Год выпуска:</span> {{ book.release_date.year }}</p>
                 <div class="d-flex flex-column gap-2 mt-3">
-                    <form action="/library/add_book/{{ book.slug }}" method="post">
+                    <form action="{% url 'library:add_book' book.slug %}" method="post">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-success opacity-75 text-light fw-bold btn-sm d-flex justify-content-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                              <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
                             </svg>
                             Добавить в библиотеку
-                        </button>
-                    </form>
-                    <form action="/library/add_review/{{ book.slug }}" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger opacity-75 text-light fw-bold btn-sm d-flex justify-content-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                              <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
-                            </svg>
-                            Оставить отзыв
                         </button>
                     </form>
                 </div>
@@ -41,9 +32,9 @@
                 </button>
                 </h2>
                 <div id="collapseOne" class="accordioncenter-collapse show" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">{{ book.description }}</div>
+                    <div class="accordion-body p-2 p-md-3 fst-italic">{{ book.description }}</div>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 {% endblock %}
