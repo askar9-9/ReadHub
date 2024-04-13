@@ -21,6 +21,8 @@ class Library(models.Model):
     date_added = models.DateTimeField(default=timezone.now, verbose_name='Дата добавления')
     
     class Meta:
+        verbose_name = 'Библиотека'
+        verbose_name_plural = 'Библиотеки'
         ordering = ['-date_added']
         indexes = [
             models.Index(fields=['-date_added'])

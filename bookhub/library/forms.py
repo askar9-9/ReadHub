@@ -4,7 +4,7 @@ from library.models import Library
 
 class StatusForm(forms.Form):
     CHOICES = (
-        ('ALL', '---------------'),
+        ('ALL', 'Все'),
         ('RG', 'Читаю'),
         ('PG', 'Планирую'),
         ('RD', 'Прочитано'),

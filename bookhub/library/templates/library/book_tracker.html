@@ -4,33 +4,35 @@
     <section class="px-lg-5 px-2 pt-3 mx-auto">
         <div class="d-flex gap-2 gap-md-4 flex-wrap flex-md-nowrap justify-content-center">
             <img src='{{ library.book.img.url }}' class="border border-2 rounded-2 flex-shrink-1" alt="Книга: {{ library.book.title }}">
-            <div class="">
+            <div class="tracker__content w-100">
                 <h2 class="mb-3 fs-2 fw-medium mb-3">{{ library.book.title }}</h2>
-                <div class="d-flex justify-content-between ">
-                    <p class="text-primary fw-medium"><span class="fw-bold text-body-secondary">Прогресс:</span></p>
-                    <p class="text-end fw-medium"><a href="{% url 'catalog:book' book.slug %}">О книге</a></p>
+                <div class="">
+                    <div class="d-flex justify-content-between ">
+                        <p class="text-primary fw-medium"><span class="fw-bold text-body-secondary">Прогресс:</span></p>
+                        <p class="text-end fw-medium"><a href="{% url 'catalog:book' book.slug %}">О книге</a></p>
+                    </div>
+                    <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar" style="width: {{ progress }}%"></div>
+                    </div>
+                    <button class="btn btn-outline-danger btn-sm mt-2 rounded-2" data-bs-toggle="modal" data-bs-target="#deleteBookFromLibrary">
+                        Удалить
+                    </button>
+                    <form method="POST" class="mt-5 d-flex flex-column gap-2">
+                        {% csrf_token %}
+                        <div class="">
+                            <label class="form-label fw-bold opacity-75" for="{{ form.status.id_for_label }}">{{ form.status.label }}:</label>
+                            {{ form.status }}
+                        </div>
+                        <div class="">
+                            <label class="form-label fw-bold opacity-75" for="{{ form.pages_read.id_for_label }}">{{ form.pages_read.label }}:</label>
+                            {{ form.pages_read }}
+                        </div>
+                        {{ form.pages_read.error }}
+                        <div class="align-self-end">
+                            <button type="submit" class="btn btn-primary btn-sm">Применить</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar" style="width: {{ progress }}%"></div>
-                </div>
-                <button class="btn btn-outline-danger btn-sm mt-2 rounded-2" data-bs-toggle="modal" data-bs-target="#deleteBookFromLibrary">
-                    Удалить
-                </button>
-                <form method="POST" class="mt-5 d-flex flex-column gap-2">
-                    {% csrf_token %}
-                    <div class="">
-                        <label class="form-label fw-bold opacity-75" for="{{ form.status.id_for_label }}">{{ form.status.label }}:</label>
-                        {{ form.status }}
-                    </div>
-                    <div class="">
-                        <label class="form-label fw-bold opacity-75" for="{{ form.pages_read.id_for_label }}">{{ form.pages_read.label }}:</label>
-                        {{ form.pages_read }}
-                    </div>
-                    {{ form.pages_read.error }}
-                    <div class="align-self-end">
-                        <button type="submit" class="btn btn-primary btn-sm">Применить</button>
-                    </div>
-                </form>
             </div>
         </div>
         <div class="modal fade" id="deleteBookFromLibrary" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteBookFromLibrary" aria-hidden="true">
@@ -50,7 +52,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal">Отмена</button>
                     <form action="{% url 'library:delete_book' library.book.slug %}">
-                        <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                        <button type="submit" class="btn btn-outline-danger btn-sm">Удалить</button>
                     </form>
                 </div>
             </div>
