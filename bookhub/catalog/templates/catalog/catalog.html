@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% load static %}
+{% block title %}Каталог | ReadHub{% endblock %} {% block content %}
+    <section class="px-lg-5 px-3 pt-3 row mx-auto">
+        <div class="d-flex justify-content-center mb-3">
+            {% include 'catalog/components/filter_button.html' %}
+        </div>
+        <div
+                class="offcanvas offcanvas-start"
+                tabindex="-1"
+                id="offcanvasExample"
+                aria-labelledby="offcanvasExampleLabel"
+        >
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Фильтрация</h5>
+                <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"
+                ></button>
+            </div>
+            <div class="offcanvas-body">
+                <form method="get">
+                    {% csrf_token %}
+                    <div class="input-group-sm mb-3">
+                        <p class="fs-5 fw-medium">{{ filter.form.title.label }}</p>
+                        {{ filter.form.title }}
+                    </div>
+                    <p class="fs-5 fw-medium mb-2 border-bottom border-1">
+                        {{ filter.form.genre.label }}
+                    </p>
+                    {% for item in filter.form.genre %}
+                        <div class="d-flex gap-2 mb-1">
+                            {{ item.tag }} {{ item.choice_label }}
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary btn-sm mt-3">
+                        Применить
+                    </button>
+                </form>
+            </div>
+        </div>
+        <section class="d-flex gap-3 justify-content-center flex-wrap">
+            {% if book_list %}
+
+                {% for book in book_list %}
+                    <a class="card rounded-2" href="{{ book.get_absolute_url }}">
+                        <img
+                                src="{{ book.img.url }}"
+                                class="card-img-top"
+                                alt="Книга: {{ book.title }}"
+                        />
+                        <div class="card-body p-2 p-md-3">
+                            <p class="card-text">{{ book.title|truncatechars:32 }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <div class="">
+                    <p class="p-5">Ничего не найдено</p>
+                </div>
+            {% endif %}
+        </section>
+        {% include 'catalog/components/pagination.html' %}
+    </section>
+{% endblock %}

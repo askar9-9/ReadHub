@@ -5,7 +5,6 @@ from .models import Book, Author, Genre
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     search_fields = ['first_name', 'last_name']
-    list_display = ['first_name', 'last_name']
 
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
@@ -15,7 +14,7 @@ class GenreAdmin(admin.ModelAdmin):
 class BookAdmin(admin.ModelAdmin):
     
     # Отображаемые данные
-    list_display = ['title', 'slug', 'author', 'date_added']
+    list_display = ['title', 'slug', 'date_added']
     
     list_filter = ['genre']
     # Поисковик по книгам и описанием
